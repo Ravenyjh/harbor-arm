@@ -4,7 +4,7 @@ set -e
 
 name='redis'
 version='6.0.15'
-core_branch='release-2.3.0'
+core_branch='v1.10.4'
 
 function checkdep {
 	if ! wget --version &> /dev/null
@@ -33,6 +33,7 @@ chmod 655 ./build_spec.sh && cp $cur/redis.spec .
 
 # step 4: build redis rpm.
 ./build_spec.sh ./redis.spec
+echo $PWD
 cp ./stage/RPMS/aarch64/$name-debuginfo-$version-1.ph4.aarch64.rpm $cur
 cp ./stage/RPMS/aarch64/$name-$version-1.ph4.aarch64.rpm $cur
 
